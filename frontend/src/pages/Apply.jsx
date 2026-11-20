@@ -171,7 +171,8 @@ export default function Apply() {
     setErrorMessage('');
     
     try {
-      const response = await fetch('http://localhost:3000/api/apply', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      const response = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, teamGroupId })
