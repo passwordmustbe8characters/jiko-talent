@@ -12,7 +12,13 @@ import { saveStudentTags } from './src/lead-pipeline/studentTags.mjs';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://jiko-talent.vercel.app',
+    process.env.FRONTEND_URL
+  ].filter(Boolean)
+}));
 app.use(express.json());
 app.use('/api/admin', adminRoutes);
 
