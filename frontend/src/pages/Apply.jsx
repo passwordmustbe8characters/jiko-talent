@@ -197,7 +197,7 @@ export default function Apply() {
   };
 
   const copyToClipboard = () => {
-    const link = `http://localhost:5173/apply?groupId=${generatedGroupId}`;
+    const link = `${window.location.origin}/apply?groupId=${generatedGroupId}`;
     navigator.clipboard.writeText(link);
     alert("Invite link copied to clipboard!");
   };
@@ -221,7 +221,7 @@ export default function Apply() {
               <p className="text-sm text-slate-600 font-['Alan_Sans',_sans-serif]">Share this link with your team. They won't need to re-upload the project links!</p>
               <div className="flex items-center gap-2 bg-slate-100 p-3 rounded-lg border border-slate-200 overflow-hidden">
                 <span className="text-xs text-slate-500 truncate flex-grow text-left">
-                  http://localhost:5173/apply?groupId={generatedGroupId}
+                 {window.location.origin}/apply?groupId={generatedGroupId}
                 </span>
                 <button onClick={copyToClipboard} className="bg-rose-900 text-white px-4 py-2 rounded text-xs font-bold hover:bg-rose-950 transition cursor-pointer flex-shrink-0">
                   Copy Link
